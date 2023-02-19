@@ -9,23 +9,28 @@
         </button>
 
         @if (Auth::check())
-            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02"> 
+        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02"> 
+            
+            {{-- Check if user is an admin --}}
                 <div class="nav-right-left me-3">
                     <ul class="navbar-nav mb-2 mb-lg-0">
 
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">View Products</a>
                         </li>
+                        
+                        @if (Auth::user() -> isAdmin)
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">View All Transactions</a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">View All Transactions</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">View Account</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">View Account</a>
+                            </li>                         
+                        @endif
+                        
                     </ul>
-                </div>
+                </div>    
 
                 <div class="nav-right-right d-flex">
 
