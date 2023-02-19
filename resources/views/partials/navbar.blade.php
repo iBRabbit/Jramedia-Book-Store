@@ -16,7 +16,7 @@
                     <ul class="navbar-nav mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">View Products</a>
+                            <a class="nav-link active" aria-current="page" href="/products">View Products</a>
                         </li>
                         
                         @if (Auth::user() -> isAdmin)
@@ -28,7 +28,7 @@
                                 <a class="nav-link" href="#">View Account</a>
                             </li>                         
                         @endif
-                        
+
                     </ul>
                 </div>    
 

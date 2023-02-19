@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +28,7 @@ Route::post('/register', [RegisterController::class, 'store']) -> middleware('gu
 Route::get('/login', [LoginController::class, 'index']) ->  name('login') -> middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']) ->  name('login') -> middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']) -> middleware('auth');
+
+Route::get('/products', [ProductController::class, 'index']) -> middleware('auth');
+Route::get('/products/add', [ProductController::class, 'add']) -> middleware('auth');
+Route::post('/products/add', [ProductController::class, 'store']) -> middleware('auth');
