@@ -11,7 +11,9 @@ class ProductController extends Controller
     {
         return view('products/index', [
             'title' => 'Product',
-            'active' => 'product'
+            'active' => 'product',
+            // All products and paginate
+            'products' => Product::paginate(3)
         ]);
     }
 
@@ -31,7 +33,7 @@ class ProductController extends Controller
             'type_id' => 'required|not_in:0'
         ]);
         
-        $product['image'] = $request->file('image')->store('product-images');
+        $product['image'] = $request->file('image')->store('product-images', 'public');
 
         Product::create($product);
         return redirect('/products/add')->with('success', 'Product successfully added!');
