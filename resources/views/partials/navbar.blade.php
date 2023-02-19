@@ -50,9 +50,15 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-dark "
                                         aria-labelledby="navbarDarkDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                        <li>
+                                            <form action="/logout" method = "post">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item">
+                                                    Logout
+                                                </button>
+                                            </form>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>

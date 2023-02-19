@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +21,10 @@ Route::get('/', function () {
         'title' => 'Home',
         'active' => 'home'
     ]);
-});
+}) -> middleware('auth');
 
-Route::get('/register', [RegisterController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']) -> middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']) -> middleware('guest');
+Route::get('/login', [LoginController::class, 'index']) ->  name('login') -> middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']) ->  name('login') -> middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout']) -> middleware('auth');

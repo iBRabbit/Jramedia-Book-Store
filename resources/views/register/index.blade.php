@@ -27,7 +27,7 @@
                 <p class = "text-center mb-4"> Already have an account? <a href="/login">Login in here!</a></p>
                 
                 <div class="submit-btn d-flex justify-content-evenly">
-                    <button type="button" class="btn btn-primary border rounded-3">{{ $title }}</button>
+                    <button type="submit" class="btn btn-primary border rounded-3">{{ $title }}</button>
                 </div>
 
                 {{-- Error --}}
@@ -36,7 +36,7 @@
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
-                                break;
+                            
                             @endforeach
                         </ul>
                     </div>

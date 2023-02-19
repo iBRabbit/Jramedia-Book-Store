@@ -10,8 +10,8 @@
                 @csrf
 
                 <div class="input-box mb-4">
-                    <label for="name" class="form-label ">Your Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <label for="email" class="form-label ">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
                 </div>
 
                 <div class="input-box mb-4">
@@ -36,7 +36,7 @@
                 </div>
                 
                 <div class="submit-btn d-flex justify-content-evenly mt-4">
-                    <button type="button" class="btn btn-primary border rounded-3">{{ $title }}</button>
+                    <button type="submit" class="btn btn-primary border rounded-3">{{ $title }}</button>
                 </div>
                 
                 {{-- Error --}}
@@ -45,7 +45,6 @@
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
-                                break;
                             @endforeach
                         </ul>
                     </div>
