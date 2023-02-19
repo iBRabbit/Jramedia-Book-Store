@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid d-flex" style="font-family: 'Courier New', Courier, monospace; ">
 
-        <a class="navbar-brand" href="#">Jramedia </a>
+        <a class="navbar-brand" href="/">Jramedia </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">

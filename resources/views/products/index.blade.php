@@ -4,10 +4,12 @@
     <div class="product-container d-flex flex-column">
         <h3 class="text-center mt-4">Our Products</h3>
 
-        <div class="add-product-btn d-flex justify-content-center">
-            <a href="/products/add"><button type="button" class="btn btn-success"> Add Product </button> </a>
-        </div>
-
+        @if (Auth::user() -> isAdmin)
+            <div class="add-product-btn d-flex justify-content-center">
+                <a href="/products/add"><button type="button" class="btn btn-success"> Add Product </button> </a>
+            </div>
+        @endif
+        
         <div class="product-list-container mt-3 ">
             <div class="container d-flex justify-content-center" >
                 @foreach ($products->chunk(3) as $chunk)
@@ -35,7 +37,7 @@
                                         <a href="/products/edit/{{ $product->id }}" class="btn btn-primary">Edit</a>
                                         <a href="/products/delete/{{ $product->id }}" class="btn btn-danger">Delete</a>
                                     @else
-                                        <a href="" class="btn btn-primary">Add to cart</a>
+                                        <a href="" class="btn btn-success">Add to cart</a>
                                     @endif
                                 </div>
                             </div>
