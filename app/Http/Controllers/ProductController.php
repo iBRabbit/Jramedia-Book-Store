@@ -11,7 +11,7 @@ class ProductController extends Controller
     {
         return view('products/index', [
             'title' => 'Product',
-            'active' => 'product',
+            'active' => 'products',
             // All products and paginate
             'products' => Product::paginate(3)
         ]);
@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function add() {
         return view('products/add', [
             'title' => 'Add Product',
-            'active' => 'product'
+            'active' => 'products'
         ]);
     }
 

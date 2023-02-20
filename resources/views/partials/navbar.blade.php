@@ -8,29 +8,32 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        {{-- Jika user login --}}
         @if (Auth::check())
-        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02"> 
-            
-            {{-- Check if user is an admin --}}
+            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+
                 <div class="nav-right-left me-3">
                     <ul class="navbar-nav mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/products">View Products</a>
+                            <a class="nav-link {{ $active === 'products' ? 'active' : '' }}" aria-current="page"
+                                href="/products">View Products</a>
                         </li>
-                        
+
+                        {{-- Jika user admin --}}
                         @if (Auth::user() -> isAdmin)
                             <li class="nav-item">
-                                <a class="nav-link" href="#">View All Transactions</a>
+                                <a class="nav-link {{ $active === 'transactions' ? 'active' : '' }}" href="#">View
+                                    All Transactions</a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">View Account</a>
-                            </li>                         
+                            <li class="nav-item {{ $active === 'accounts' ? 'active' : '' }}">
+                                <a class="nav-link" href="#">View Accounts</a>
+                            </li>
                         @endif
 
                     </ul>
-                </div>    
+                </div>
 
                 <div class="nav-right-right d-flex">
 
@@ -38,11 +41,14 @@
                         <form class="d-flex">
                             <input class="form-control" type="search" placeholder="Search product here"
                                 aria-label="Search">
-                            <button class="btn btn-outline-success " type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                            </svg></button>
+                            <button class="btn btn-outline-success " type="submit"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg></button>
                         </form>
-                        
+
                     </div>
 
                     <div class="nav-right-right-right">
@@ -57,7 +63,7 @@
                                         aria-labelledby="navbarDarkDropdownMenuLink">
                                         <li><a class="dropdown-item" href="#">My Profile</a></li>
                                         <li>
-                                            <form action="/logout" method = "post">
+                                            <form action="/logout" method="post">
                                                 @csrf
                                                 <button type="submit" class="dropdown-item">
                                                     Logout
@@ -69,12 +75,14 @@
                             </ul>
                         </div>
                     </div>
-                            
+
                 </div>
-            
+
             </div>
-            @else
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02"> 
+
+            {{-- Jika user belum login --}}
+        @else
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mb-2 mb-lg-0">
 
                     <li class="nav-item">
@@ -90,7 +98,7 @@
                     </li>
                 </ul>
             </div>
-            @endif
+        @endif
 
-        
+
 </nav>
