@@ -3,6 +3,19 @@
 @section('content')
     <div class="product-container d-flex flex-column">
         <h3 class="text-center mt-4">Our Products</h3>
+        
+        {{-- Messages --}}
+        @if (session('success'))
+            <div class="alert alert-success mt-3">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger mt-3">
+                {{ session('error') }}
+            </div>
+        @endif
 
         @if (Auth::user() -> isAdmin)
             <div class="add-product-btn d-flex justify-content-center">
