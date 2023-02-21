@@ -31,4 +31,4 @@ Route::post('/login', [LoginController::class, 'authenticate']) ->  name('login'
 Route::post('/logout', [LoginController::class, 'logout']) -> middleware('auth');
 
 Route::resource('/products', ProductController::class) -> middleware('auth');
-Route::resource('/accounts', UserController::class) -> middleware('auth');
+Route::resource('/accounts', UserController::class) -> middleware('admin');
