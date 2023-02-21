@@ -29,6 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('products/create', [
             'title' => 'Add Product',
             'active' => 'products'
@@ -43,6 +44,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin');
         $product = $request->validate([
             'name' => 'required|min:5',
             'price' => 'required|numeric|min:1000',
@@ -99,7 +101,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        
+        $this->authorize('admin');
         // Delete image 
         if($product->image)
             Storage::disk('public')->delete($product->image);

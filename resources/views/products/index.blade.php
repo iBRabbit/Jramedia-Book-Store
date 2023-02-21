@@ -17,11 +17,11 @@
             </div>
         @endif
 
-        @if (Auth::user() -> isAdmin)
+        @can('admin')
             <div class="add-product-btn d-flex justify-content-center">
                 <a href="/products/create"><button type="button" class="btn btn-success"> Add Product </button> </a>
             </div>
-        @endif
+        @endcan
         
         <div class="product-list-container mt-3 ">
             <div class="container d-flex justify-content-center" >
@@ -46,7 +46,7 @@
 
                             <div class="row mb-2">
                                 <div class="col">
-                                    @if (Auth::user()->isAdmin)
+                                    @can('admin')
                                         <div class="action-center-box d-flex flex-row">
                                             <form action="/products/{{ $product->id }}/edit" method="post"></form>
                                                 @csrf
@@ -62,7 +62,7 @@
                                         </div>
                                     @else
                                         <a href="" class="btn btn-success">Add to cart</a>
-                                    @endif
+                                    @endcan
                                 </div>
                             </div>
 
