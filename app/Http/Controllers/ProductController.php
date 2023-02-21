@@ -32,6 +32,7 @@ class ProductController extends Controller
         $this->authorize('admin');
         return view('products/create', [
             'title' => 'Add Product',
+            'header' => 'Add new product',
             'active' => 'products'
         ]);
     }
@@ -78,7 +79,13 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $this->authorize('admin');
+        return view('products/edit', [
+            'title' => 'Edit Product',
+            'header' => 'Edit product',
+            'active' => 'products',
+            'product' => $product
+        ]);
     }
 
     /**

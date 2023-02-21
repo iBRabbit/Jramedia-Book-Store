@@ -48,10 +48,7 @@
                                 <div class="col">
                                     @can('admin')
                                         <div class="action-center-box d-flex flex-row">
-                                            <form action="/products/{{ $product->id }}/edit" method="post"></form>
-                                                @csrf
-                                                <button type="submit" class="btn btn-primary">Edit</button>
-                                            </form>
+                                            <a href="/products/{{ $product->id }}/edit" class="btn btn-primary">Edit</a>
     
                                             <form action="/products/{{ $product->id }}" method="post" class = "ms-2">
                                                 @method('delete')
