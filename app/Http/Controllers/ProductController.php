@@ -82,7 +82,7 @@ class ProductController extends Controller
         $this->authorize('admin');
         return view('products/edit', [
             'title' => 'Edit Product',
-            'header' => 'Edit product',
+            'header' => 'Update Product Form',
             'active' => 'products',
             'product' => $product
         ]);
