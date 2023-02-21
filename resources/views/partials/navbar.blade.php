@@ -28,7 +28,7 @@
                             </li>
 
                             <li class="nav-item {{ $active === 'accounts' ? 'active' : '' }}">
-                                <a class="nav-link" href="#">View Accounts</a>
+                                <a class="nav-link" href="/accounts/">View Accounts</a>
                             </li>
                         @endcan
 
