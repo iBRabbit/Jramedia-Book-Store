@@ -17,4 +17,5 @@
         <img src="https://www.torontopubliclibrary.ca/content/reading-challenge/images/reading-challenge-hero.jpg" alt="" class = "p-3 m-3" width="95%">
         <p style ="position:absolute; font-weight: bold; color:white; font-size:2rem; bottom:30%">We provide all of your books and stationary needs</p>
     </div>
-@endsection
+@endsection.,,,,,,,,,,
+     / 

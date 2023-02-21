@@ -29,6 +29,4 @@ Route::get('/login', [LoginController::class, 'index']) ->  name('login') -> mid
 Route::post('/login', [LoginController::class, 'authenticate']) ->  name('login') -> middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']) -> middleware('auth');
 
-Route::get('/products', [ProductController::class, 'index']) -> middleware('auth');
-Route::get('/products/add', [ProductController::class, 'add']) -> middleware('auth');
-Route::post('/products/add', [ProductController::class, 'store']) -> middleware('auth');
+Route::resource('/products', ProductController::class) -> middleware('auth');

@@ -26,7 +26,7 @@
     <div class="add-box mt-5 d-flex flex-column">
         <h1 class = "mt-4" style="color:darkgreen">Add New Product</h1>
 
-        <form action="/products/add" method="post" enctype="multipart/form-data" id="add-product-form">
+        <form action="/products/" method="post" enctype="multipart/form-data" id="add-product-form">
             @csrf
             <div class="input-box mb-2">
                 <label for="name" class="name mb-2">Product Name</label>

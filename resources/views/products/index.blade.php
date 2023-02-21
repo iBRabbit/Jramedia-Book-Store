@@ -6,7 +6,7 @@
 
         @if (Auth::user() -> isAdmin)
             <div class="add-product-btn d-flex justify-content-center">
-                <a href="/products/add"><button type="button" class="btn btn-success"> Add Product </button> </a>
+                <a href="/products/create"><button type="button" class="btn btn-success"> Add Product </button> </a>
             </div>
         @endif
         
@@ -34,8 +34,19 @@
                             <div class="row mb-2">
                                 <div class="col">
                                     @if (Auth::user()->isAdmin)
-                                        <a href="/products/edit/{{ $product->id }}" class="btn btn-primary">Edit</a>
-                                        <a href="/products/delete/{{ $product->id }}" class="btn btn-danger">Delete</a>
+                                        <div class="action-center-box d-flex flex-row">
+                                            <form action="/products/{{ $product->id }}/edit" method="post"></form>
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary">Edit</button>
+                                            </form>
+    
+                                            <form action="/products/{{ $product->id }}" method="post" class = "ms-2">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Delete</button>                                     
+                                            </form>
+
+                                        </div>
                                     @else
                                         <a href="" class="btn btn-success">Add to cart</a>
                                     @endif
