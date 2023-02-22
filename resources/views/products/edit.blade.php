@@ -1,8 +1,9 @@
 @extends('layouts.form')
 
 @section('content-form')
-<form action="/products/" method="post" enctype="multipart/form-data" id="add-product-form">
+<form action="/products/{{ $product->id }}" method="post" enctype="multipart/form-data" id="add-product-form">
     @csrf
+    @method('put')
     <div class="input-box mb-2">
         <label for="name" class="name mb-2">Product Name</label>
         <input type="name" class="form-control mb-2" id="name" name="name" value="{{ old('name', $product -> name) }}" required> 

@@ -97,7 +97,27 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $this->authorize('admin');
+        $validatedData = $request->validate([
+            'name' => 'required|min:5',
+            'price' => 'required|numeric|min:1000',
+            'description' => 'required|min:5',
+            'image' => 'image|mimes:jpeg,jpg,png|max:15000',
+            'type_id' => 'required|not_in:0'
+        ]);
+
+        if($request->file('image')) {
+            // Delete image 
+            if($product->image)
+                Storage::disk('public')->delete($product->image);
+
+            $validatedData['image'] = $request->file('image')->store('product-images', 'public');
+        }
+
+        Product::where('id', $product->id)
+            ->update($validatedData);
+    
+        return redirect('/products')->with('success', 'Product successfully updated!');
     }
 
     /**
