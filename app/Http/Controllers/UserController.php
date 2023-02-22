@@ -81,12 +81,14 @@ class UserController extends Controller
     {
         
         $validatedData = $request->validate([
-            'name' => 'required|min:5',
-            'email' => 'required|email',
-            'password' => 'required|min:8',
+            'name' => 'required|min:5|unique:users,name,' . $user->id,
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'required|min:8|max:20',
             'isAdmin' => 'not_in:-1'
         ]);
         
+        
+
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::where('id', $user->id)
