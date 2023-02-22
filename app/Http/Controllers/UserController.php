@@ -87,7 +87,8 @@ class UserController extends Controller
             'isAdmin' => 'not_in:-1'
         ]);
         
-    
+        
+
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::where('id', $user->id)
