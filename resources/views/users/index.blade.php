@@ -6,6 +6,19 @@
 
         <h1 class="text-center mt-4 mb-4" >Accounts</h1>
 
+        {{-- Messages --}}
+        @if (session('success'))
+            <div class="alert alert-success mt-3">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger mt-3">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <div class="user-box d-flex flex-column justify-content-center" style="margin-inline:30%">
             @foreach ($users as $user)
             <div class="card mb-3" >
@@ -19,7 +32,7 @@
                     </div>
 
                     <div class="col-md-2">
-                        <a href="#" class="btn btn-primary d-flex align-items-center justify-content-center" style="width:100%; height:50%" >Edit</a>
+                        <a href="/users/{{ $user->id }}/edit" class="btn btn-primary d-flex align-items-center justify-content-center" style="width:100%; height:50%" >Edit</a>
 
                         <form action="/users/{{ $user->id }}" method="POST" style="width:100%;height:50%;">
                             @csrf

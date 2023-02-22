@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -61,7 +62,12 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users/edit', [
+            'title' => 'Edit Account',
+            'active' => 'users',
+            'user' => $user,
+            'header' => 'Edit Account'
+        ]);
     }
 
     /**
@@ -73,7 +79,20 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        
+        $validatedData = $request->validate([
+            'name' => 'required|min:5',
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+            'isAdmin' => 'not_in:-1'
+        ]);
+        
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        User::where('id', $user->id)
+            ->update($validatedData);
+
+        return redirect('/users/')->with('success', 'User has successfully updated!');
     }
 
     /**
@@ -85,6 +104,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
-        return redirect('/users')->with('success', 'Product successfully deleted!');
+        return redirect('/users')->with('success', 'User has successfully deleted!');
     }
 }
