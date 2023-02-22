@@ -14,9 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('accounts/index', [
+        return view('users/index', [
             'title' => 'All Accounts',
-            'active' => 'accounts',
+            'active' => 'users',
             'users' => User::paginate(3)
         ]);
     }
@@ -85,6 +85,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
-        return redirect('/accounts')->with('success', 'Account successfully deleted!');
+        return redirect('/users')->with('success', 'Product successfully deleted!');
     }
 }

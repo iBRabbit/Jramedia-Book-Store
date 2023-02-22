@@ -21,23 +21,13 @@
                     <div class="col-md-2">
                         <a href="#" class="btn btn-primary d-flex align-items-center justify-content-center" style="width:100%; height:50%" >Edit</a>
 
-                        <form action="#" method="POST" style="width:100%;height:50%;">
+                        <form action="/users/{{ $user->id }}" method="POST" style="width:100%;height:50%;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" style="width: 100%; height:100%;">Delete</button>
                         </form>
                     </div>
-                    {{-- <div class="col-md-4 d-flex flex-column">
 
-                        <a href="#" class="btn btn-primary" style="width:100%; height:50%">Edit</a>
-
-                        <form action="#" method="POST" style="width:100% height:100%;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" style="width:100%; height:50%;">Delete</button>
-                        </form>
-
-                    </div> --}}
                 </div>
             </div>
         @endforeach
