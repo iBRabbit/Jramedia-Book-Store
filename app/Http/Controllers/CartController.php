@@ -49,7 +49,7 @@ class CartController extends Controller
         ->get();
 
         if($query->count() > 0) {
-            return redirect('/products/')->with('error', 'Product already in cart!');
+            return redirect('/cart/')->with('error', 'Product already in cart!');
         }
 
         Cart::create([
@@ -58,7 +58,7 @@ class CartController extends Controller
             'quantity' => 1
         ]);
 
-        return redirect('/products/')->with('success', 'Product successfully deleted!');
+        return redirect('/cart/')->with('success', 'Product successfully deleted!');
     }
 
     /**
@@ -96,6 +96,9 @@ class CartController extends Controller
         $validatedData = $request->validate([
             'quantity' => 'required|numeric|min:1'
         ]);
+
+        if(!$validatedData)
+            return redirect('/cart')->with('error', 'Please enter the correct value');
 
         Cart::where('id', $cart->id)->update($validatedData);
         return redirect('/cart')->with('success', 'Cart successfully updated!');
