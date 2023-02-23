@@ -31,11 +31,11 @@ Route::get('/login', [LoginController::class, 'index']) ->  name('login') -> mid
 Route::post('/login', [LoginController::class, 'authenticate']) ->  name('login') -> middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']) -> middleware('auth');
 
-// Route::resource('/cart', CartController::class) -> middleware('auth');
+Route::resource('/cart', CartController::class) -> middleware('auth');
 
-Route::get('/cart', [CartController::class, 'index']) -> middleware('auth');
+// Route::get('/cart', [CartController::class, 'index']) -> middleware('auth');
 Route::post('/products/cart/{product}', [CartController::class, 'addCart']) -> middleware('auth');
-Route::put('/cart/{cart}', [CartController::class, 'update']) -> middleware('auth');
+// Route::put('/cart/{cart}', [CartController::class, 'update']) -> middleware('auth');
 
 Route::resource('/products', ProductController::class) -> middleware('auth');
 Route::resource('/users', UserController::class) -> middleware('admin');
