@@ -92,11 +92,10 @@ class CartController extends Controller
      */
     public function update(Request $request, Cart $cart)
     {
-        dd($request, $cart);
+
         $validatedData = $request->validate([
             'quantity' => 'required|numeric|min:1'
         ]);
-
 
         Cart::where('id', $cart->id)->update($validatedData);
         return redirect('/cart')->with('success', 'Cart successfully updated!');
