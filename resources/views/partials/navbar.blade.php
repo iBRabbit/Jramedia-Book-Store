@@ -63,6 +63,9 @@
                                         aria-labelledby="navbarDarkDropdownMenuLink">
                                         <li><a class="dropdown-item" href="#">{{ Auth::user() -> name }}</a></li>
                                         <li>
+                                            <a href="/cart/" class="dropdown-item" >My Cart</a>
+                                        </li>
+                                        <li>
                                             <form action="/logout" method="post">
                                                 @csrf
                                                 <button type="submit" class="dropdown-item">

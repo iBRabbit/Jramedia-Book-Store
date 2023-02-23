@@ -58,7 +58,11 @@
 
                                         </div>
                                     @else
-                                        <a href="" class="btn btn-success">Add to cart</a>
+                                        <form action="/products/cart/{{ $product->id }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-success">Add to Cart</button>
+                                            
+                                        </form>
                                     @endcan
                                 </div>
                             </div>
