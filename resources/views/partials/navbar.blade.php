@@ -20,6 +20,12 @@
                                 href="/products">View Products</a>
                         </li>
 
+                        @can('user')
+                            <li class="nav-item">
+                                <a class="nav-link {{ $active === 'cart' ? 'active' : '' }}" href="/cart">View Cart</a>
+                            </li>
+                        @endcan
+
                         {{-- Jika user admin --}}
                         @can('admin')
                             <li class="nav-item">
@@ -62,11 +68,6 @@
                                     <ul class="dropdown-menu dropdown-menu-dark "
                                         aria-labelledby="navbarDarkDropdownMenuLink">
                                         <li><a class="dropdown-item" href="#">{{ Auth::user() -> name }}</a></li>
-                                        @can('user')
-                                        <li>
-                                            <a href="/cart/" class="dropdown-item" >My Cart</a>
-                                        </li>
-                                        @endcan
                                         <li>
                                             <form action="/logout" method="post">
                                                 @csrf

@@ -11,7 +11,7 @@ class TransactionController extends Controller
         return view('transactions/index', [
             'title' => 'All Transactions',
             'active' => 'transactions',
-            'transactions' => Transaction::paginate(10)
+            'transactions' => Transaction::orderBy('created_at', 'desc')->paginate(10)
         ]);
     }
 

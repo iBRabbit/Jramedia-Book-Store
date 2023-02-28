@@ -59,7 +59,7 @@
                                 </form>
                             </th>
                             <td>{{ $cart->product->name }}</td>
-                            <td>{{ 'Rp ' . $cart->product->price }}</td>
+                            <td>{{ 'Rp ' . number_format($cart->product->price) }}</td>
                             <td>{{ $cart->product->description }}</td>
                             <td>
                                 <form action="/cart/{{ $cart->id }}" method="post" id="form-{{ $cart->id }}">
@@ -76,7 +76,7 @@
                                 </form>
 
                             </td>
-                            <td>{{ 'Rp ' . $cart->product->price * $cart->quantity }}</td>
+                            <td>{{ 'Rp ' . number_format( $cart->product->price * $cart->quantity )}}</td>
                         </tr>
                     @endforeach
                 </tbody>
