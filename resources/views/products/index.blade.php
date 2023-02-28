@@ -38,7 +38,7 @@
                                     <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top"
                                         alt="{{ $product->name }}" height="200rem">
                                 @else
-                                    <img src="{{ asset('storage\images\product-icon.png') }}" class="card-img-top"
+                                    <img src="{{asset('images\product-icon.png') }}" class="card-img-top"
                                         alt="{{ $product->name }}" height="200rem">
                                 @endif
                             </div>

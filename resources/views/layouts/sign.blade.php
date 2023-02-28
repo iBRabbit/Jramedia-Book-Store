@@ -24,7 +24,7 @@
                 
                 {{-- Kolom Kanan (Gambar) --}}
                 <div class="col">
-                    <img src="{{ asset('storage\images\login-image.gif') }}" alt="">
+                    <img src="{{ asset('images\login-image.gif') }}" alt="">
                 </div>
             </div>
         </div>

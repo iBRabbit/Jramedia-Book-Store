@@ -105,6 +105,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        if($user->id == auth()->user()->id)
+            return redirect('/users')->with('error', 'You cannot delete your own account!');
+        
         User::destroy($user->id);
         return redirect('/users')->with('success', 'User has successfully deleted!');
     }
