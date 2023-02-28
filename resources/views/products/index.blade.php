@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="product-container d-flex flex-column">
-        <h3 class="text-center mt-4">Our Products</h3>
+
+        @if (!empty(request('isSearching')))
+            <p class="text-center mt-4" style="color:rgb(3, 107, 104)">Showing result(s) for {{ request('search') }}</p>
+        @else
+            <h3 class="text-center mt-4">Our Products</h3>
+        @endif
 
         {{-- Messages --}}
         @if (session('success'))

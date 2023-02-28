@@ -44,9 +44,12 @@
                 <div class="nav-right-right d-flex">
 
                     <div class="nav-right-right-left me-4">
-                        <form class="d-flex">
-                            <input class="form-control" type="search" placeholder="Search product here"
-                                aria-label="Search">
+                        <form class="d-flex" style="width:19vw" action="/products/" method="get">
+                            @csrf
+                            <input type="hidden" value="{{ true }}" name ='isSearching'> 
+                            <input class="form-control" type="search" placeholder="Search product here..."
+                                aria-label="Search" name="search" value="">
+                            
                             <button class="btn btn-outline-success " type="submit"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-search" viewBox="0 0 16 16">

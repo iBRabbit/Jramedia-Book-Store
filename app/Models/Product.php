@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Cart;
 
+use function PHPUnit\Framework\isEmpty;
+
 class Product extends Model
 {
     use HasFactory;
@@ -14,6 +16,13 @@ class Product extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function scopeFilter($query) {
+        // dd(empty(request('search')));
+        if(request('search')) {
+            return $query->where('name', 'like', '%' . request('search') . '%');
+        }
+    }
 
     public function cart() {
         return $this -> hasMany(Cart::class);
