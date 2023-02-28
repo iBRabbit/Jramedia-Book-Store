@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Cart;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +21,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Storage::disk('public')->deleteDirectory('product-images');
+
         User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',

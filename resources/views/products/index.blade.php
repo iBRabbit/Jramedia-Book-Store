@@ -38,7 +38,7 @@
                                     <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top"
                                         alt="{{ $product->name }}" height="200rem">
                                 @else
-                                    <img src="https://cdn.shopify.com/s/files/1/0657/7923/7091/products/WP08110_1_1200x.webp?v=1664270222" class="card-img-top"
+                                    <img src="{{ asset('storage\images\product-icon.png') }}" class="card-img-top"
                                         alt="{{ $product->name }}" height="200rem">
                                 @endif
                             </div>

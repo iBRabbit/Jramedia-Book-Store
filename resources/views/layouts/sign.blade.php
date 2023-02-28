@@ -24,7 +24,7 @@
                 
                 {{-- Kolom Kanan (Gambar) --}}
                 <div class="col">
-                    <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--E93j2cHk--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/4dgtswjdz07d6s9txle6.gif" alt="">
+                    <img src="{{ asset('storage\images\login-image.gif') }}" alt="">
                 </div>
             </div>
         </div>
