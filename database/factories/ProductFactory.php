@@ -20,7 +20,6 @@ class ProductFactory extends Factory
             'name' => $this->faker->unique()->text(10),
             'price' => $this->faker->numberBetween(1000, 100000000),
             'description' => $this->faker->text(100),
-            'image' => $this->faker->imageUrl(640, 480, 'cats', true, 'Faker'),
             'type_id' => $this->faker->numberBetween(1, 2),
         ];
     }

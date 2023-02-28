@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Transaction;
+use Ramsey\Uuid\Uuid;
 
 class CartController extends Controller
 {
@@ -49,7 +51,7 @@ class CartController extends Controller
         ->get();
 
         if($query->count() > 0) {
-            return redirect('/product/')->with('error', 'Product already in cart!');
+            return redirect('/products/')->with('error', 'Product already in cart!');
         }
 
         Cart::create([
@@ -58,7 +60,7 @@ class CartController extends Controller
             'quantity' => 1
         ]);
 
-        return redirect('/product/')->with('success', 'Product successfully deleted!');
+        return redirect('/products/')->with('success', 'Product successfully added!');
     }
 
     /**
@@ -115,5 +117,30 @@ class CartController extends Controller
     {
         Cart::destroy($cart->id);
         return redirect('/cart/')->with('success', 'Cart successfully deleted!');
+    }
+
+    public function checkout() {
+        // dd("masuk");
+        $carts = Cart::where('user_id', auth()->user()->id)->get();
+        
+        foreach($carts as $cart) {
+            Transaction::create(
+                [
+                    'user_id' => auth()->user()->id,
+                    'uuid' => Uuid::uuid4()->toString(),
+                    'product_id' => $cart->product_id,
+                    'quantity' => $cart->quantity
+                ]
+            );
+
+            if($cart->destroy($cart->id))
+                echo "berhasil";
+            else
+                echo "gagal";
+
+            echo "mnasuk";
+        }
+
+        return redirect('/cart/')->with('success', 'Checkout successfully!');   
     }
 }

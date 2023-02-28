@@ -84,7 +84,12 @@
 
 
             <div class="btn-container d-flex justify-content-center">
-                <button type="submit" class="btn btn-success mt-auto" form="form-1">Checkout</button>
+                <form action="/cart/checkout" method="post" id="form-1">
+                    @csrf
+                    <button type="submit" class="btn btn-success mt-auto" form="form-1">
+                        Checkout
+                    </button>
+                </form>
             </div>
         @endif
 

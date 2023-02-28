@@ -23,11 +23,11 @@
                         {{-- Jika user admin --}}
                         @can('admin')
                             <li class="nav-item">
-                                <a class="nav-link {{ $active === 'transactions' ? 'active' : '' }}" href="#">View
+                                <a class="nav-link {{ $active === 'transactions' ? 'active' : '' }}" href="/transactions">View
                                     All Transactions</a>
                             </li>
 
-                            <li class="nav-item {{ $active === 'accounts' ? 'active' : '' }}">
+                            <li class="nav-item {{ $active === 'users' ? 'active' : '' }}">
                                 <a class="nav-link" href="/users/">View Accounts</a>
                             </li>
                         @endcan
@@ -62,9 +62,11 @@
                                     <ul class="dropdown-menu dropdown-menu-dark "
                                         aria-labelledby="navbarDarkDropdownMenuLink">
                                         <li><a class="dropdown-item" href="#">{{ Auth::user() -> name }}</a></li>
+                                        @can('user')
                                         <li>
                                             <a href="/cart/" class="dropdown-item" >My Cart</a>
                                         </li>
+                                        @endcan
                                         <li>
                                             <form action="/logout" method="post">
                                                 @csrf

@@ -8,8 +8,10 @@ use App\Models\Product;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Cart;
-
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Hash;
+use Ramsey\Uuid\Uuid;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -33,9 +35,10 @@ class DatabaseSeeder extends Seeder
             'isAdmin' => false
         ]);
 
-
-        User::factory(10)->create();
+        
+        User::factory(8)->create();
         Product::factory(10)->create();
         Cart::factory(10)->create();
+        Transaction::factory(10)->create();
     }
 }
