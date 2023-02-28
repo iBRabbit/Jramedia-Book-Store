@@ -48,7 +48,7 @@
                             @csrf
                             <input type="hidden" value="{{ true }}" name ='isSearching'> 
                             <input class="form-control" type="search" placeholder="Search product here..."
-                                aria-label="Search" name="search" value="">
+                                aria-label="Search" name="search" value="{{ (request('search')) ? request('search') : "" }}">
                             
                             <button class="btn btn-outline-success " type="submit"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

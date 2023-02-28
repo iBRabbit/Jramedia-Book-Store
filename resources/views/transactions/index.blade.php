@@ -34,7 +34,7 @@
             
         </table>
         <div class="paginate-box d-flex justify-content-center">
-            {{ $transactions->links() }}
+            {{ $transactions->links()}}
         </div>
     </div>
 @endsection     

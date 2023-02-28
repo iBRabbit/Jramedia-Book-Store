@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Cart;
 
-use function PHPUnit\Framework\isEmpty;
 
 class Product extends Model
 {

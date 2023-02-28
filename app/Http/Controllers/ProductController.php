@@ -14,10 +14,13 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = Product::latest()->filter(request(['search']))->paginate(3);
+        $products->appends(['search' => request('search'), 'isSearching' => 'true']); 
+
         return view('products/index', [
             'title' => 'Product',
             'active' => 'products',
-            'products' => Product::latest()->filter(request(['search']))->paginate(3),
+            'products' => $products,
         ]);
     }
 
