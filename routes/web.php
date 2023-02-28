@@ -32,7 +32,7 @@ Route::get('/login', [LoginController::class, 'index']) ->  name('login') -> mid
 Route::post('/login', [LoginController::class, 'authenticate']) ->  name('login') -> middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']) -> middleware('auth');
 
-Route::resource('/cart', CartController::class) -> middleware('auth');
+Route::resource('/cart', CartController::class) -> middleware('user');
 Route::post('/products/cart/{product}', [CartController::class, 'addCart']) -> middleware('auth');
 Route::post('/cart/checkout', [CartController::class, 'checkout']) -> middleware('auth');
 

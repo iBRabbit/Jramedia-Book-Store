@@ -10,7 +10,6 @@ use App\Models\User;
 use App\Models\Cart;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Hash;
-use Ramsey\Uuid\Uuid;
 
 class DatabaseSeeder extends Seeder
 {
