@@ -22,9 +22,11 @@ class LoginController extends Controller
             'password' => 'required|min:8|max:20',
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        $remember = $request->has('remember') ? true : false;
 
+        if (Auth::attempt($credentials, $remember)) {
+            $request->session()->regenerate();
+            
             return redirect()->intended('/');
         }
 

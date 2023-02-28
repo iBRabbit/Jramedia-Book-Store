@@ -23,7 +23,7 @@
                     <div class="row ">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name = "remember">
                                 <label class="form-check-label" for="flexCheckChecked">
                                     Remember Me
                                 </label>

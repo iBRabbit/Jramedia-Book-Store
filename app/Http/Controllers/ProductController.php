@@ -17,7 +17,6 @@ class ProductController extends Controller
         return view('products/index', [
             'title' => 'Product',
             'active' => 'products',
-            // All products and paginate
             'products' => Product::latest()->filter(request(['search']))->paginate(3),
         ]);
     }
