@@ -132,13 +132,7 @@ class CartController extends Controller
                     'quantity' => $cart->quantity
                 ]
             );
-
-            if($cart->destroy($cart->id))
-                echo "berhasil";
-            else
-                echo "gagal";
-
-            echo "mnasuk";
+            $cart->destroy($cart->id);
         }
 
         return redirect('/cart/')->with('success', 'Checkout successfully!');   

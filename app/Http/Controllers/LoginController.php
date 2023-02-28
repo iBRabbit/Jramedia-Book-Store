@@ -18,8 +18,8 @@ class LoginController extends Controller
 
     public function authenticate(Request $request) {
         $credentials = $request->validate([
-            'email' => 'required|email:dns|max:255',
-            'password' => 'required|min:8|max:20',
+            'email' => 'required',
+            'password' => 'required',
         ]);
 
         $remember = $request->has('remember') ? true : false;

@@ -3,7 +3,7 @@
 @section('content')
     <div class="transaction-container">
 
-        <h1>Transaction History</h1>
+        <h1 class="text-center mt-4 mb-4" style="color:rgba(3, 131, 122, 0.597)">Transaction History</h1>
 
         <table class="table">
             <thead>
