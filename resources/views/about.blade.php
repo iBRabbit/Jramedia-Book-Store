@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.sign')
 
 @section('content')
     <style>
@@ -12,7 +12,7 @@
             align-items: center;
             position: relative;
         }
-    </style> 
+    </style>
     <div class="content-box mt-5 mb-5 d-flex flex-column" >
         <img src="{{ asset('images\reading-challenge-hero.jpg') }}" alt="" class = "p-3 m-3" width="95%">
         <p style ="position:absolute; font-weight: bold; color:white; font-size:2rem; bottom:30%">We provide all of your books and stationary needs</p>

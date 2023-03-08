@@ -116,8 +116,7 @@ class ProductController extends Controller
             $validatedData['image'] = $request->file('image')->store('product-images', 'public');
         }
 
-        Product::where('id', $product->id)
-            ->update($validatedData);
+        Product::where('id', $product->id)->update($validatedData);
     
         return redirect('/products')->with('success', 'Product successfully updated!');
     }

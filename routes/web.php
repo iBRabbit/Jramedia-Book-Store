@@ -26,6 +26,13 @@ Route::get('/', function () {
     ]);
 }) -> middleware('auth');
 
+Route::get('/about',function (){
+    return view('about',[
+        'title' => 'About',
+        'active' => 'about'
+    ]);
+}) -> middleware('guest');
+
 Route::get('/register', [RegisterController::class, 'index']) -> middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']) -> middleware('guest');
 Route::get('/login', [LoginController::class, 'index']) ->  name('login') -> middleware('guest');

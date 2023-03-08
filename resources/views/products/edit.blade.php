@@ -23,11 +23,11 @@
         <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">Product Type</label>
             <select class="form-select" id="inputGroupSelect01" name="type_id" required>
-              <option value="0" >Choose...</option>
-              <option value="1" {{ (old('type_id', $product -> type_id) == 1) ? "selected" : ""}}>Book</option>
-              <option value="2" {{ (old('type_id', $product -> type_id) == 2) ? "selected" : ""}}>Stationary</option>
+                <option value="0" >Choose...</option>
+                <option value="1" {{ (old('type_id', $product -> type_id) == 1) ? "selected" : ""}}>Book</option>
+                <option value="2" {{ (old('type_id', $product -> type_id) == 2) ? "selected" : ""}}>Stationary</option>
             </select>
-          </div>
+        </div>
     </div>
 
     <div class="input-box mb-2">
