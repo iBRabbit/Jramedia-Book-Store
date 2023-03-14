@@ -33,8 +33,8 @@
                                     All Transactions</a>
                             </li>
 
-                            <li class="nav-item {{ $active === 'users' ? 'active' : '' }}">
-                                <a class="nav-link" href="/users/">View Accounts</a>
+                            <li class="nav-item">
+                                <a class="nav-link {{ $active === 'users' ? 'active' : '' }}" href="/users/">View Accounts</a>
                             </li>
                         @endcan
 
@@ -95,15 +95,15 @@
                 <ul class="navbar-nav mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                        <a class="nav-link {{ $active === 'login' ? 'active' : '' }}" aria-current="page" href="/login">Login</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
+                        <a class="nav-link {{ $active === 'register' ? 'active' : '' }}" href="/register">Register</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">About Us</a>
+                        <a class="nav-link {{ $active === 'about' ? 'active' : '' }}" href="/about">About Us</a>
                     </li>
                 </ul>
             </div>
