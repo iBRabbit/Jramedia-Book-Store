@@ -10,23 +10,21 @@
                 @csrf
 
                 <div class="input-box mb-4">
-                    <label for="email" class="form-label ">Your Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ Cookie::get('remember') ? Cookie::get('email') : "" }}" required>
                 </div>
 
                 <div class="input-box mb-4">
                     <label for="password" class="form-label ">Password</label>
-                    <input type="password" class="form-control" id="password" name="password"  required>
+                    <input type="password" class="form-control" id="password" name="password" value = {{ Cookie::get('remember') ? Cookie::get('password') : "" }} required>
                 </div>
                 
                 <div class="container mt-4 p-0">
                     <div class="row ">
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name = "remember">
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Remember Me
-                                </label>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name = "remember" {{ Cookie::get('remember') ? "checked" : ""}}>
+                                <label class="form-check-label" for="flexCheckChecked">Remember Me</label>
                             </div>
                         </div>
                         <div class="col">

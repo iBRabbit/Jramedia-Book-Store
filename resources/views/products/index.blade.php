@@ -24,7 +24,9 @@
 
         @can('admin')
             <div class="add-product-btn d-flex justify-content-center">
-                <a href="/products/create"><button type="button" class="btn btn-success"> Add Product </button> </a>
+                <a href="/products/create">
+                    <button type="button" class="btn btn-success"> Add Product </button> 
+                </a>
             </div>
         @endcan
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
@@ -22,11 +23,16 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        $remember = $request->has('remember') ? true : false;
-
-        if (Auth::attempt($credentials, $remember)) {
-            $request->session()->regenerate();
-            
+        // $remember = $request->has('remember') ? true : false;
+        
+        if($request->has('remember')) {
+            Cookie::queue(Cookie::make('remember', true, 60));
+            Cookie::queue(Cookie::make('email', $request->email, 60));
+            Cookie::queue(Cookie::make('password', $request->password, 60));
+        }
+        
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate(); 
             return redirect()->intended('/');
         }
 
