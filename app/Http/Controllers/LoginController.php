@@ -23,15 +23,17 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        // $remember = $request->has('remember') ? true : false;
-        
         if($request->has('remember')) {
             Cookie::queue(Cookie::make('remember', true, 60));
             Cookie::queue(Cookie::make('email', $request->email, 60));
             Cookie::queue(Cookie::make('password', $request->password, 60));
+        } else {
+            Cookie::queue(Cookie::forget('remember'));
+            Cookie::queue(Cookie::forget('email'));
+            Cookie::queue(Cookie::forget('password'));
         }
         
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->remember)) {
             $request->session()->regenerate(); 
             return redirect()->intended('/');
         }

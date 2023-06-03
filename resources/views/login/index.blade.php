@@ -16,7 +16,7 @@
 
                 <div class="input-box mb-4">
                     <label for="password" class="form-label ">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" value = {{ Cookie::get('remember') ? Cookie::get('password') : "" }} required>
+                    <input type="password" class="form-control" id="password" name="password" value = "{{ Cookie::get('remember') ? Cookie::get('password') : "" }}"" required>
                 </div>
                 
                 <div class="container mt-4 p-0">
