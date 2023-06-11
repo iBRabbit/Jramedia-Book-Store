@@ -33,7 +33,7 @@ class LoginController extends Controller
             Cookie::queue(Cookie::forget('password'));
         }
         
-        if (Auth::attempt($credentials, $request->remember)) {
+        if (Auth::attempt($credentials, $request->has('remember'))) {
             $request->session()->regenerate(); 
             return redirect()->intended('/');
         }

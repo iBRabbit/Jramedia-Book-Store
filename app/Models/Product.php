@@ -17,10 +17,9 @@ class Product extends Model
     ];
 
     public function scopeFilter($query) {
-        // dd(empty(request('search')));
-        if(request('search')) {
+        if(request('search')) 
             return $query->where('name', 'like', '%' . request('search') . '%');
-        }
+        
     }
 
     public function cart() {
